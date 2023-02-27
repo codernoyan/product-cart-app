@@ -1,4 +1,4 @@
-import { ADDPRODUCT, ADDTOCART, DELETEPRODUCT } from "./actionTypes"
+import { ADDPRODUCT, ADDTOCART, DELETEPRODUCT, DECREMENT, INCREMENT } from "./actionTypes"
 export const addProduct = (product) => {
   return {
     type: ADDPRODUCT,
@@ -20,5 +20,19 @@ export const deletedProduct = (id, quantity) => {
       id,
       quantity,
     }
+  }
+}
+
+export const productIncrement = (id)=>{
+  return{
+    type: INCREMENT,
+    payload: id
+  }
+}
+
+export const productDecrement = (id)=>{
+  return {
+    type: DECREMENT,
+    payload: id
   }
 }

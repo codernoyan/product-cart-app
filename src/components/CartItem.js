@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux"
 import { decrement, deleted, increment, } from "../redux/cart/actions";
-import { deletedProduct } from "../redux/products/actions";
+import { deletedProduct, productDecrement, productIncrement } from "../redux/products/actions";
 
 export default function CartItem({ cart }) {
   const { id, productName, price, quantity, category } = cart;
@@ -8,13 +8,15 @@ export default function CartItem({ cart }) {
   // increase quantity
   const handleIncrement = (id) => {
     dispatch(increment(id));
+    // back to product quantity
+    dispatch(productDecrement(id))
   }
 
   // decrease quantity
   const handleDecrement = (id) => {
     dispatch(decrement(id));
     // back to product quantity
-    dispatch(deletedProduct(id, quantity))
+    dispatch(productIncrement(id));
   };
 
   // handleDelete
