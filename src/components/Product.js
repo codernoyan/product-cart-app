@@ -6,10 +6,10 @@ export default function Product({ product }) {
   const { id, quantity, productName, category, price, imageUrl } = product;
   const dispatch = useDispatch();
   // add to cart
-  const handleAddToCart = (product, id) => {
+  const handleAddToCart = (existingProduct, id) => {
     dispatch(addToCart(id));
     
-    dispatch(added(product))
+    dispatch(added(existingProduct))
   }
   return (
     <div className="lws-productCard">

@@ -8,7 +8,9 @@ export default function CartContainer() {
   // total price
   const totalPrice = cartData.reduce((prev, cur)=>{
     return prev + (cur.price * cur.quantity)
-  }, 0)
+  }, 0);
+
+  console.log(cartData)
 
   return (
     <main className="py-16">

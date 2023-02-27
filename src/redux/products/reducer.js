@@ -1,5 +1,5 @@
 import initialState from "./initialState";
-import { ADDPRODUCT, ADDTOCART } from "./actionTypes";
+import { ADDPRODUCT, ADDTOCART, DELETEPRODUCT } from "./actionTypes";
 
 const productId = (products = []) => {
   const newMaxId = products.reduce((newMaxId, product) => Math.max(product.id, newMaxId), 0);
@@ -30,6 +30,16 @@ const reducer = (state = initialState, action) => {
           }
         }
         return product;
+      })
+    case DELETEPRODUCT:
+      return state.map((product) => {
+        if (product.id !== action.payload.id) {
+          return product;
+        }
+        return {
+            ...product,
+            quantity: product.quantity + action.payload.quantity
+          }
       })
     default:
       return state;

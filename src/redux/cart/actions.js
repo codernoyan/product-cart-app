@@ -3,7 +3,7 @@ import { ADDED, DECREMENT, DELETED, INCREMENT } from "./actionTypes";
 export const added = (product) => {
   return {
     type: ADDED,
-    payload: product,
+    payload: {...product},
   }
 };
 
