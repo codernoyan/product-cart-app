@@ -5,7 +5,8 @@ import Product from "./Product";
 
 export default function Products() {
   const productsData = useSelector((state) => state.products);
-  const cart = useSelector((state)=> state.cart)
+  const cart = useSelector((state)=> state.cart);
+  
   const dispatch = useDispatch();
   // form initial state
   const [input, setInput] = useState({
